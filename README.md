@@ -11,7 +11,7 @@ SampleApp_api is the API serving this front end application.
 
 
 Execution steps:
-Open the solution in Visual Studio 2017
+Open the solution in Visual Studio 2019
 Set SampleApp_api as default project and start without debugging
 Set SampleApp as default project and start without debugging
 
