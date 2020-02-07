@@ -1,0 +1,91 @@
+<h1>SampleApp test code</h1>
+<br>
+<div>
+  <h4>Project structure:</h4>
+  This solution contains two projects
+  <ul>
+    <li>SampleApp</li>
+    <li>SampleApp_api</li>
+  </ul>
+
+  <p>SampleApp is the frontend application which has ClientApp folder for Angular stuff.</p>
+  <p>SampleApp_api is the API serving this front end application.</p>
+</div>
+<br>
+<div>
+  <h4>Execution steps:</h4>
+  <ul>
+    <li>Open the solution in Visual Studio 2017</li>
+    <li>Set SampleApp_api as default project and start without debugging</li>
+    <li>Set SampleApp as default project and start without debugging</li>
+  </ul>
+</div>
+<br>
+
+<h4>Prerequisite to run this application:</h4>
+
+Make sure these packages are installed
+<br>
+<ul>
+  <li>Asp.Net Core 3.0</li>
+  <li>Node.js</li>
+</ul>
+
+<br>
+<h4>Possible error </h4>
+<ul>
+  <li>
+    Node.js is required to build and run this project. The NPM script 'start' exited without indicating that the Angular CLI was listening for requests.
+    'ng' is not recognized as an internal or external command.
+  </li>
+</ul>
+	Probable solution is missing angular cli globally.
+	Run following command in command prompt or powershell
+<br>
+<br>
+
+<span style="background-color: cornsilk;">npm install -g @angular/cli</span>
+<br>
+<br>
+
+If error still persist then build the clientApp separately once.
+Navigate to client app folder in powershell or command prompt / open clientApp folder in visual studio code and build using command
+<br>
+<br>
+<span style="background-color: cornsilk;">ng build</span>
+<br>
+<br>
+<div>
+  <h4>API Content</h4>
+  You can query the api content through get requests. All request are anonymous.
+</div>
+<br>
+<div>
+  <h4>Front End </h4>
+  <p>The program tab in the menu fetches all the content from available data. </p>
+  <p>Other options in ngOnInit() <span style="background-color: cornsilk;">ClientApp > src > app > fetch-data > fetch-data.component.ts</span></p>
+  <span style="background-color: cornsilk;">
+    <p>
+      this.getPrograms();<br>
+      // this.addProgram();<br>
+      // this.deleteProgram();<br>
+    </p>
+  </span>
+
+  <p>If you enable // this.addProgram(); then it will add the default record to dataset</p>
+  <p>If you enable // this.deleteProgram(); then it will delete the default record from dataset</p>
+</div>
+<br>
+<h4>This single-page application, built with:</h4>
+<ul>
+  <li><a href='https://get.asp.net/'>ASP.NET Core</a> and <a href='https://msdn.microsoft.com/en-us/library/67ef8sbd.aspx'>C#</a> for cross-platform server-side code</li>
+  <li><a href='https://angular.io/'>Angular</a> and <a href='http://www.typescriptlang.org/'>TypeScript</a> for client-side code</li>
+  <li><a href='http://getbootstrap.com/'>Bootstrap</a> for layout and styling</li>
+</ul>
+<p>To help you get started, we've also set up:</p>
+<ul>
+  <li><strong>Client-side navigation</strong>. For example, click <em>Counter</em> then <em>Back</em> to return here.</li>
+  <li><strong>Angular CLI integration</strong>. In development mode, there's no need to run <code>ng serve</code>. It runs in the background automatically, so your client-side resources are dynamically built on demand and the page refreshes when you modify any file.</li>
+  <li><strong>Efficient production builds</strong>. In production mode, development-time features are disabled, and your <code>dotnet publish</code> configuration automatically invokes <code>ng build</code> to produce minified, ahead-of-time compiled JavaScript files.</li>
+</ul>
+<p>The <code>ClientApp</code> subdirectory is a standard Angular CLI application. If you open a command prompt in that directory, you can run any <code>ng</code> command (e.g., <code>ng test</code>), or use <code>npm</code> to install extra packages into it.</p>

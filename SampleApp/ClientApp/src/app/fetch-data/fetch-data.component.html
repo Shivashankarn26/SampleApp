@@ -1,0 +1,21 @@
+<h1>Programs data</h1>
+
+<p *ngIf="!programs"><em>Loading...</em></p>
+<table class='table' *ngIf="programs">
+  <thead>
+    <tr>
+      <th>Series ID</th>
+      <th>Date</th>
+      <th>Screen</th>
+      <th>Views</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let program of programs">
+      <td>{{ program.seriesId }}</td>
+      <td>{{ program.date | date: 'dd.MM.yyyy' }}</td>
+      <td>{{ program.screen }}</td>
+      <td>{{ program.views }}</td>
+    </tr>
+  </tbody>
+</table>
