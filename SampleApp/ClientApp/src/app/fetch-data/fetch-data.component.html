@@ -1,21 +1,28 @@
 <h1>Programs data</h1>
 
 <p *ngIf="!programs"><em>Loading...</em></p>
-<table class='table' *ngIf="programs">
-  <thead>
-    <tr>
-      <th>Series ID</th>
-      <th>Date</th>
-      <th>Screen</th>
-      <th>Views</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let program of programs">
-      <td>{{ program.seriesId }}</td>
-      <td>{{ program.date | date: 'dd.MM.yyyy' }}</td>
-      <td>{{ program.screen }}</td>
-      <td>{{ program.views }}</td>
-    </tr>
-  </tbody>
-</table>
+
+<div class="mat-elevation-z8" style="max-height: 100vh; overflow: auto;">
+  <table style="width: 100%;" mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="seriesId">
+      <th mat-header-cell *matHeaderCellDef> Series ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.seriesId}} </td>
+    </ng-container>
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef> Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.date | date: 'dd/MM/yyyy' }}</td>
+    </ng-container>
+    <ng-container matColumnDef="screen">
+      <th mat-header-cell *matHeaderCellDef> Screen </th>
+      <td mat-cell *matCellDef="let element"> {{element.screen}} </td>
+    </ng-container>
+    <ng-container matColumnDef="views">
+      <th mat-header-cell *matHeaderCellDef> Views </th>
+      <td mat-cell *matCellDef="let element"> {{element.views}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>

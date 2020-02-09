@@ -23,7 +23,6 @@ export class ProgramService {
   }
 
   public add(program: ProgramModel): Observable<number> {
-    // const url = this.URL + '/orders/bulkbook/';
     return this.http.post(this.URL, program, this.getHttpOptions())
     .pipe (
       map(response => response as any)
@@ -31,7 +30,6 @@ export class ProgramService {
   }
 
   public delete(program: ProgramModel): Observable<number> {
-    // const url = this.URL + '/orders/bulkbook/';
     return this.http.patch(this.URL, program, this.getHttpOptions())
     .pipe (
       map(response => response as any)
@@ -39,9 +37,6 @@ export class ProgramService {
   }
 
   public get(): Observable<ProgramModel[]> {
-    return this.http.get(this.URL, this.getHttpOptions())
-    .pipe(
-      map(response => response as ProgramModel[])
-    );
+    return this.http.get<ProgramModel[]>(this.URL, this.getHttpOptions());
   }
 }

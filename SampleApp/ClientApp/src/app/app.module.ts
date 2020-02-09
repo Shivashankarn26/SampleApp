@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
@@ -10,14 +10,8 @@ import { HomeComponent } from './home/home.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatTableModule } from '@angular/material/table';
-import { MatFormFieldModule,
-  MatInputModule,
-  MatDatepickerModule,
-  MatNativeDateModule,
-  MatSelectModule,
-  MatButtonModule,
-  MatDialogModule } from '@angular/material';
+import { MaterialModule } from './material/material.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +23,7 @@ import { MatFormFieldModule,
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({
       timeOut: 5000,
@@ -36,17 +31,10 @@ import { MatFormFieldModule,
       preventDuplicates: true,
       closeButton: true
     }),
-    MatTableModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatSelectModule,
-    MatButtonModule,
-    MatDialogModule,
+    MaterialModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'programs', component: FetchDataComponent },
+      { path: 'programs', loadChildren: () => import('./program/program.module').then(m => m.ProgramModule)},
     ])
   ],
   providers: [],

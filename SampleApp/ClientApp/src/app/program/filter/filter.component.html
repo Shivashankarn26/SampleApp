@@ -1,0 +1,26 @@
+<form [formGroup]="filterForm">
+
+    <mat-form-field matFormFieldControl [floatLabel]="'always'" appearance="outline" class="w60 pr--small">
+        <mat-label>Series Name</mat-label>        
+        <input formControlName="series" matInput (keyup)="applyFilter('series',$event)" > 
+        <mat-icon matSuffix></mat-icon>
+    </mat-form-field>
+    <mat-icon *ngIf="filterForm.controls['series'].value" (click)="clearField('series')" style="cursor: pointer;">close</mat-icon>
+    <br>
+    <mat-form-field matFormFieldControl [floatLabel]="'always'" appearance="outline" class="w60 pr--small">
+      <mat-label>Date</mat-label>
+      <input #date id="date" matInput
+      [matDatepicker]="date" formControlName="date" (dateChange)="applyFilter('date',$event)">
+      <mat-datepicker-toggle matSuffix [for]="date"></mat-datepicker-toggle>
+      <mat-datepicker #date></mat-datepicker>
+    </mat-form-field>
+    <mat-icon *ngIf="filterForm.controls['date'].value" (click)="clearField('date')" style="cursor: pointer;">close</mat-icon>
+    <br>
+    <mat-form-field matFormFieldControl [floatLabel]="'always'" appearance="outline" class="w60 pr--small">
+        <mat-label>Screen</mat-label>
+        <mat-select formControlName="screen" required>
+          <mat-option *ngFor="let item of screenList" [value]="item.id" (click)="applyFilter('screen',$event)"> {{ item.value }} </mat-option>      
+        </mat-select>
+    </mat-form-field>
+    <mat-icon *ngIf="filterForm.controls['screen'].value" (click)="clearField('screen')" style="cursor: pointer;">close</mat-icon>
+</form>
