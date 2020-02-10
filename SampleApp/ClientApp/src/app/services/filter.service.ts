@@ -6,13 +6,14 @@ import { SeriesFilter } from '../models/SeriesFilter';
 import { DateFilter } from '../models/DateFilter';
 import { ScreenFilter } from '../models/ScreenFilter';
 import { DatePipe } from '@angular/common';
+import { DateFormatPipe } from '../pipes/date-format.pipe';
 
 @Injectable({
     providedIn: 'root'
 })
 export class FilterService {
 
-    constructor(private datePipe: DatePipe) {}
+    constructor(private datePipe: DateFormatPipe) {}
 
     getFilter(filter: FilterKeyValuePair): BaseFilter {
         switch (filter.key) {

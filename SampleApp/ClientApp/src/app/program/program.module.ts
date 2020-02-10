@@ -17,6 +17,6 @@ const routes: Routes = [
   declarations: [DashboardComponent, FilterComponent, TableComponent],
   imports: [CommonModule, RouterModule.forChild(routes), MaterialModule,
     FormsModule,
-    ReactiveFormsModule,]
+    ReactiveFormsModule]
 })
 export class ProgramModule { }

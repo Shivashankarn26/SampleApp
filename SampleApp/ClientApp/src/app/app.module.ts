@@ -11,13 +11,15 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
+import { DateFormatPipe } from './pipes/date-format.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    FetchDataComponent
+    FetchDataComponent,
+    DateFormatPipe
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -37,7 +39,7 @@ import { MaterialModule } from './material/material.module';
       { path: 'programs', loadChildren: () => import('./program/program.module').then(m => m.ProgramModule)},
     ])
   ],
-  providers: [],
+  providers: [DateFormatPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
