@@ -6,6 +6,6 @@ export class SeriesFilter extends BaseFilter {
     constructor(_filter: FilterKeyValuePair) { super(_filter); }
 
     applyFilter(currentReport: ProgramModel[]): ProgramModel[] {
-        return currentReport.filter(p => p.seriesId.includes(this.filter.value));
+        return currentReport.filter(p => p.seriesId.toLocaleLowerCase().includes(this.filter.value.toLocaleLowerCase()));
     }
 }

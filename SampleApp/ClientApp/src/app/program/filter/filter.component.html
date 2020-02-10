@@ -18,7 +18,7 @@
     <br>
     <mat-form-field matFormFieldControl [floatLabel]="'always'" appearance="outline" class="w60 pr--small">
         <mat-label>Screen</mat-label>
-        <mat-select formControlName="screen" required>
+        <mat-select formControlName="screen">
           <mat-option *ngFor="let item of screenList" [value]="item.id" (click)="applyFilter('screen',$event)"> {{ item.value }} </mat-option>      
         </mat-select>
     </mat-form-field>
