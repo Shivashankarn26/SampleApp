@@ -58,22 +58,28 @@ Navigate to client app folder in powershell or command prompt / open clientApp f
 <div>
   <h4>API Content</h4>
   You can query the api content through get requests. All request are anonymous.
+  <p>In API the Programs Controller has all the required actions to get, add and delete data from dataset.</p>
 </div>
 <br>
 <div>
   <h4>Front End </h4>
   <p>The program tab in the menu fetches all the content from available data. </p>
-  <p>Other options in ngOnInit() <span style="background-color: cornsilk;">ClientApp > src > app > fetch-data > fetch-data.component.ts</span></p>
+  
   <span style="background-color: cornsilk;">
     <p>
-      this.getPrograms();<br>
-      // this.addProgram();<br>
-      // this.deleteProgram();<br>
+      getPrograms();<br>
+      // addProgram(); // not implemented<br>
+      // deleteProgram(); // not implemented<br>
     </p>
   </span>
-
-  <p>If you enable // this.addProgram(); then it will add the default record to dataset</p>
-  <p>If you enable // this.deleteProgram(); then it will delete the default record from dataset</p>
+  <p>It has three filter options. The data gets filtered as any input given to these filters.</p>
+    <ul>
+      <li>Series Name: text field</li>
+      <li>Date: Material date field</li>
+      <li>Screen: select option</li>
+    </ul>
+  
+   NB: there is a 'X' icon on each field which appear if any data is there, which clears the field and filter.
 </div>
 <br>
 <h4>This single-page application, built with:</h4>

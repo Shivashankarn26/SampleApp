@@ -17,8 +17,8 @@ export class FilterOption {
 }
 
 export enum ScreenType {
-    TV,
-    Mobile,
-    Tablet,
-    Desktop
+    TV = 'TV',
+    Mobile = 'mobile',
+    Tablet = 'tablet',
+    Desktop = 'desktop'
 }

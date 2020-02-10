@@ -15,7 +15,7 @@ export class FilterComponent implements OnInit {
   appliedFilters: FilterKeyValuePair[] = [];
   @Output() filterChanged: EventEmitter<any> = new EventEmitter();
 
-  screenList = [{id: 0, value: 'TV'}, {id: 1, value: 'Mobile'}, {id: 2, value: 'Tablet'}, {id: 3, value: 'Desktop'}];
+  screenList = [{id: 1, value: 'TV'}, {id: 2, value: 'Mobile'}, {id: 3, value: 'Tablet'}, {id: 4, value: 'Desktop'}];
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
@@ -34,7 +34,6 @@ export class FilterComponent implements OnInit {
     let value: string;
     switch (controlName) {
       case FilterType.Series:
-      case FilterType.Screen:
         value = this.filterForm.controls[controlName].value;
         break;
       case FilterType.Date:
@@ -45,6 +44,8 @@ export class FilterComponent implements OnInit {
           value = event.value.toISOString();
         }
         break;
+      case FilterType.Screen:
+        value = this.screenList.find(s => s.id === +this.filterForm.controls[controlName].value).value;
     }
     if (value != null) {
       const filter = {
@@ -59,5 +60,7 @@ export class FilterComponent implements OnInit {
 
   clearField(controlName: string) {
     this.filterForm.controls[controlName].setValue('');
+    this.appliedFilters = this.appliedFilters.filter(f => f.key !== controlName);
+    this.filterChanged.emit(this.appliedFilters);
   }
 }

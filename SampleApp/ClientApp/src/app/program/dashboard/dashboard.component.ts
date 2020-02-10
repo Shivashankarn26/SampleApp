@@ -32,6 +32,7 @@ export class DashboardComponent implements OnInit {
     this.programService.get().subscribe(response => {
       this.programs = response;
       this.isLoading = false;
+      this.filteredProgramSubject.next(this.programs);
       console.log(this.programs);
     }
     , error => {
